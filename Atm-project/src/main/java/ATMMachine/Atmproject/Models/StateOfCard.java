@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="State_Card")
-public class StateOfCardModel {
+public class StateOfCard {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")

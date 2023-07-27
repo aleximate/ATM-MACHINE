@@ -3,12 +3,13 @@ package ATMMachine.Atmproject.Models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "States")
-public class StateModel {
+@Table(name = "Type_of_Card")
+public class TypeCard {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private int id;
-    @Column(name = "state_name")
-    private String stateName;
+    private Long id;
+    @Column(name="type_name")
+    private String typeName;
+
 }
