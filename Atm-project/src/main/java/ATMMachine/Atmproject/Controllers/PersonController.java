@@ -18,7 +18,7 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public String save(@RequestBody Person person) {
         return personService.addPerson(person);
     }

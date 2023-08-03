@@ -8,25 +8,33 @@ import java.util.Date;
 import java.util.Random;
 
 @Entity
-@Table(name = "Cards")
+@Table(name = "Card")
 public class Card {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
     @Column(name="card_number")
     private String cardNumber;
-    @Column(name = "code_security")
-    private int codeSecurity;
+    @Column(name = "code_security") 
+    private String codeSecurity;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_type_card")
+    private TypeCard typeCard;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_state_card")
+    private StateOfCard stateOfCard;
     @Temporal(TemporalType.DATE)
     @Column(name = "creation_date")
     private LocalDate creationDate;
     @Temporal(TemporalType.DATE)
     @Column(name="due_date")
     private LocalDate dueDate;
+
     @PrePersist
     public void Card() {
         this.cardNumber = generatedCardNumber();
+        this.codeSecurity=generatedCode();
         this.creationDate=LocalDate.now();
         this.dueDate=this.creationDate.plusYears(3).plusDays(5);
     }
@@ -39,12 +47,23 @@ public class Card {
         }
         return cardNumber.toString();
     }
+    private String generatedCode(){
+        Random ra= new Random();
+        StringBuilder codeNumber= new StringBuilder();
+        for (int a=0; a<3;a++){
+            int code=ra.nextInt(10);
+            codeNumber.append(code);
+        }
+        return codeNumber.toString();
 
-    public Card(String cardNumber, int codeSecurity, LocalDate creationDate, LocalDate dueDate) {
-        this.cardNumber = cardNumber;
-        this.codeSecurity = codeSecurity;
-        this.creationDate = creationDate;
-        this.dueDate = dueDate;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCardNumber() {
@@ -55,11 +74,11 @@ public class Card {
         this.cardNumber = cardNumber;
     }
 
-    public int getCodeSecurity() {
+    public String getCodeSecurity() {
         return codeSecurity;
     }
 
-    public void setCodeSecurity(int codeSecurity) {
+    public void setCodeSecurity(String codeSecurity) {
         this.codeSecurity = codeSecurity;
     }
 
@@ -77,5 +96,21 @@ public class Card {
 
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public TypeCard getTypeCard() {
+        return typeCard;
+    }
+
+    public void setTypeCard(TypeCard typeCard) {
+        this.typeCard = typeCard;
+    }
+
+    public StateOfCard getStateOfCard() {
+        return stateOfCard;
+    }
+
+    public void setStateOfCard(StateOfCard stateOfCard) {
+        this.stateOfCard = stateOfCard;
     }
 }
