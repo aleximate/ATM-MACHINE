@@ -9,15 +9,15 @@ export class HeaderComponent {
   public itemsMenu=[
     {
       name:'Home',
-      route:''
+      route:'home'
     },
     {
       name:'Register',
-      route:''
+      route:'register'
     },
     {
       name:'ATM',
-      route:''
+      route:'atm'
     }
   ]
 

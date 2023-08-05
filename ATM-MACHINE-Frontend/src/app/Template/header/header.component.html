@@ -1,8 +1,8 @@
 <header>
   <div class="container">
-    <img src="assets/img/banco-logo.png">
+    <img src="assets/img/logo.png" [routerLink]="['home']">
     <ul>
-      <li *ngFor="let i of itemsMenu">{{i.name}}</li>
+      <li *ngFor="let i of itemsMenu" [routerLink]="[i.route]">{{i.name}}</li>
     </ul>
   </div>
 </header>

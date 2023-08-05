@@ -1,13 +1,15 @@
 footer
 {
   width: 100%;
-  background-color: red;
+  background-color:white;
 }
 
 p{
+  padding: 30px;
   font-size: 20px;
+  font-weight: bold;
   text-align: center;
-  color: white;
+  color: black;
 }
 
 .container{
