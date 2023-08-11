@@ -1,1 +1,47 @@
-<p>register works!</p>
+<div class="container">
+  <div class="container-1">
+    <img src="assets/img/banner-2.jpg" />
+  </div>
+  <div class="container-2">
+    <form [formGroup]="cardForm">
+      <input
+        placeholder="Firstname"
+        type="text"
+        class="form-Control"
+        formControlName="firstName"
+      />
+
+      <input
+        placeholder="Lastname"
+        type="text"
+        class="form-Control"
+        formControlName="lastName"
+      />
+
+      <input placeholder="DNI" class="form-Control" formControlName="dni" />
+
+      <input
+        placeholder="Email"
+        type="email"
+        class="form-Control"
+        formControlName="email"
+      />
+
+      <input
+        placeholder="Cellphone"
+        class="form-Control"
+        formControlName="cellPhone"
+      />
+
+      <input
+        placeholder="Address"
+        class="form-Control"
+        formControlName="address"
+      />
+
+      <button [disabled]="cardForm.invalid" (click)="register()">
+        register
+      </button>
+    </form>
+  </div>
+</div>

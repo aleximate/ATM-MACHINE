@@ -1,0 +1,25 @@
+.container{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.container-1{
+  height: 100vh;
+  position: relative;
+  align-items: center;
+}
+.container-2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form{
+  background-color: aqua;
+  width: 70%;
+  height: 500px;
+}
+img{
+  position: absolute;
+  padding: auto;
+  width: 100%;
+  height: 100%;
+}
