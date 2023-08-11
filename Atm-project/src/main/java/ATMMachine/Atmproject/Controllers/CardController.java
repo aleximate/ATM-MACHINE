@@ -2,6 +2,7 @@ package ATMMachine.Atmproject.Controllers;
 
 import ATMMachine.Atmproject.Models.Card;
 import ATMMachine.Atmproject.Models.StateOfCard;
+import ATMMachine.Atmproject.Models.TypeCard;
 import ATMMachine.Atmproject.Repositories.CardRepository;
 import ATMMachine.Atmproject.Repositories.StateOfCardRepository;
 import ATMMachine.Atmproject.Repositories.TypeCardRepository;
@@ -30,6 +31,10 @@ public class CardController {
     public ResponseEntity<Card> save(@RequestBody Card card){
         Optional<StateOfCard> stateOfCardOptional=stateOfCardRepository.findById(card.getStateOfCard().getId());
         card.setStateOfCard(stateOfCardOptional.get());
+
+        Optional<TypeCard> typeOfCardOptional = typeCardRepository.findById(card.getTypeCard().getId());
+        card.setTypeCard(typeOfCardOptional.get());
+
         Card card1=cardRepository.save(card);
         return ResponseEntity.noContent().build();
     }
