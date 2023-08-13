@@ -4,6 +4,7 @@
   </div>
   <div class="container-2">
     <form [formGroup]="cardForm">
+      <h1>REGISTER FOR YOUR NEW CARD</h1>
       <input
         placeholder="Firstname"
         type="text"
@@ -40,7 +41,7 @@
       />
 
       <button [disabled]="cardForm.invalid" (click)="register()">
-        register
+        REGISTER
       </button>
     </form>
   </div>

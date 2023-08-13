@@ -13,9 +13,36 @@
   align-items: center;
 }
 form{
-  background-color: aqua;
-  width: 70%;
-  height: 500px;
+  background:white;
+  border: 0 none;
+  border-radius: 0px;
+  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  padding: 20px 30px;
+  box-sizing: border-box;
+  width: 400px;
+  margin: 0 10%;
+  border-radius: 20px;
+}
+input{
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2C3E50;
+  font-size: 13px;
+}
+button{
+  background-color: #e3001c;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+button:disabled{
+  background-color: #FF4949;
 }
 img{
   position: absolute;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
 import { Person } from 'src/app/Interfaces/person';
 import { PersonService} from 'src/app/Services/person.service';
 
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit{
 
   constructor(
     private formBuilder:FormBuilder,
-    private personService:PersonService
+    private personService:PersonService,
+    private router:Router
   ){}
   ngOnInit(): void {
     this.cardForm=this.formBuilder.group({
@@ -36,6 +38,7 @@ export class RegisterComponent implements OnInit{
       this.personService.register(personData).subscribe({
         next:()=>{
           console.log('Person register')
+          this.router.navigate(['/register/card'])
         },
         error:(e)=>{
           console.log('errorrrr',e)

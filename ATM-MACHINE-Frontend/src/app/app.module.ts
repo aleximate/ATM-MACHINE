@@ -9,6 +9,7 @@ import { HomeComponent } from './Pages/home/home.component';
 import { RegisterComponent } from './Pages/register/register.component';
 import { AtmComponent } from './Pages/atm/atm.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CardComponent } from './Pages/card/card.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     HomeComponent,
     RegisterComponent,
-    AtmComponent
+    AtmComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
