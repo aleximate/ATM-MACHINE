@@ -1,12 +1,20 @@
 package ATMMachine.Atmproject.Models;
 
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="State_Card")
+@Getter
+@Setter
+@AllArgsConstructor
+@Table(name = "State_Card")
 public class StateOfCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,35 +22,10 @@ public class StateOfCard {
     private Long id;
     @Column(name = "state_card_name")
     private String stateCardName;
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "stateOfCard")
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "stateOfCard")
     private List<Card> cards;
 
-
     public StateOfCard() {
-        cards= new ArrayList<Card>();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getStateCardName() {
-        return stateCardName;
-    }
-
-    public void setStateCardName(String stateCardName) {
-        this.stateCardName = stateCardName;
-    }
-
-    public List<Card> getCards() {
-        return cards;
-    }
-
-    public void setCards(List<Card> cards) {
-        this.cards = cards;
     }
 }
